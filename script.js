@@ -5,6 +5,9 @@ const reasonsContainer = document.getElementById("reasons");
 passwordInput.addEventListener("input", updateStrengthMeter);
 updateStrengthMeter();
 
+/**
+ * Updates HTML file by given returns
+ */
 function updateStrengthMeter() {
   const weaknesses = calculatePasswordStrength(passwordInput.value);
   let strength = 100;
