@@ -19,6 +19,11 @@ function updateStrengthMeter() {
   strengthMeter.style.setProperty("--strength", strength);
 }
 
+/**
+ * Calculates weakness of password by given functions
+ * @param {string} password - Input Password
+ * @returns weakness of password
+ */
 function calculatePasswordStrength(password) {
   const weakness = [];
   weakness.push(lengthWeakness(password));
@@ -29,6 +34,11 @@ function calculatePasswordStrength(password) {
   return weakness;
 }
 
+/**
+ * Calculates length of password
+ * @param {string} password
+ *
+ */
 function lengthWeakness(password) {
   const length = password.length;
 
@@ -47,18 +57,38 @@ function lengthWeakness(password) {
   }
 }
 
+/**
+ *
+ * @param {string} password
+ * @returns weakness by lowercase characters number
+ */
 function lowerCaseWeakness(password) {
   return characterTypeWeakness(password, /[a-z]/g, "lowercase characters");
 }
 
+/**
+ *
+ * @param {string} password
+ * @returns weakness by uppercase characters number
+ */
 function upperCaseWeakness(password) {
   return characterTypeWeakness(password, /[A-Z]/g, "uppercase characters");
 }
 
+/**
+ *
+ * @param {string} password
+ * @returns weakness by number type characters number
+ */
 function numberWeakness(password) {
   return characterTypeWeakness(password, /[0-9]/g, "numbers");
 }
 
+/**
+ *
+ * @param {string} password
+ * @returns weakness by special characters number
+ */
 function specialCharacterWeakness(password) {
   return characterTypeWeakness(
     password,
@@ -67,6 +97,13 @@ function specialCharacterWeakness(password) {
   );
 }
 
+/**
+ * Calculates strength of different input types
+ * @param {string} password - Input password
+ * @param {string} regex - Regex Expression type
+ * @param {string} type - Regexr function name
+ * @returns Reason of warning
+ */
 function characterTypeWeakness(password, regex, type) {
   const matches = password.match(regex) || [];
 
