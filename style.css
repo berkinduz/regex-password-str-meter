@@ -1,0 +1,64 @@
+*::before,
+*::after,
+* {
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+body {
+  background-color: white;
+  color: #fea82f;
+  text-align: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.strength-meter {
+  position: relative;
+  height: 3rem;
+  border: 3px solid #385d6e;
+  width: 90%;
+  border-radius: 1rem;
+  margin: 0 auto;
+}
+
+.strength-meter::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: calc(
+    1% * var(--strength, 0)
+  ); /* Given variable must be percent value */
+  background-color: #81c8e9;
+  overflow: hidden;
+  border-radius: 1rem;
+
+  transition: width 300ms;
+}
+
+.password-input {
+  width: 70%;
+  padding: 0.6rem 0.75rem;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 2px solid black;
+  margin: 3rem 0;
+  outline: none;
+  text-align: center;
+  border-radius: 0.3rem;
+  color: black;
+}
+
+.password-input:focus {
+  border: 2px solid black;
+}
+
+.reasons > * {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
